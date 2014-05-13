@@ -12,12 +12,11 @@ for line in sys.stdin:
    	try:	
 		data = line.split("\t")
 		link, count = data
-		# print link
+
 		if float(maxCount) < float(count):
 			maxPath = link
 			maxCount = count
 	except:
-		# print data
 		continue
 
 print "{0}\t{1}".format(maxPath, maxCount)

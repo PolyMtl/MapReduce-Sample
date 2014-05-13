@@ -1,18 +1,22 @@
 #!/usr/bin/python
 import sys
-# def maper():
-for line in sys.stdin:
-	# data = line[53:].split(" ")[0]
-	# print data +"\t1"
 
-	data = line.split(" ")
-	# print data[6]
-	try:
-		link = data[:data[6].index("?")]
-	 # +"\t1"
-	except:
-		link = data[6]
-		 
+def maper():
+	for line in sys.stdin:
 
-	# print link
-	print "{0}\t1".format(link)
+		data = line.split(" ")
+		try:
+			link = data[:data[6].index("?")]
+
+		except:
+			link = data[6]
+		
+		try:
+			link = link.replace("http://www.the-associates.co.uk", "")
+		except:
+			continue
+
+		print "{0}\t1".format(link)
+		
+if __name__ == '__main__':
+    maper()
