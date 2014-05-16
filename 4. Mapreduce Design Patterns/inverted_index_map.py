@@ -12,8 +12,9 @@ def maper():
 
     	# print body
         for word in body:
-        	if word:
-        		print "{0}\t{1}".format(word.lower(), id)
+        	word = word.lower();
+        	if word and (word =="fantastic" or word == "fantastically"):
+        		print "{0}\t{1}".format(word, id)
 		
 if __name__ == '__main__':
     maper()
