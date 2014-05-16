@@ -7,8 +7,7 @@ from datetime import datetime
 def mapper():
     reader = csv.reader(sys.stdin, delimiter='\t')
 
-    oldDate = None
-    total = 0
+    total = count = 0
 
     for line in reader:
         
@@ -19,14 +18,10 @@ def mapper():
         if weekday != 6:
             continue
         
-        if oldDate and oldDate != date:
-            print "{0}\t{1}".format(oldDate, total)
-            total = 0
-
         total += price
-        oldDate = date
+        count += 1
 
-    print "{0}\t{1}".format(oldDate, total)
+    print total / count
 
 # This function allows you to test the mapper with the provided test string
 def main():
